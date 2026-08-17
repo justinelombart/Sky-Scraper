@@ -49,4 +49,5 @@ int	main(int argc, char **argv)
 	}
 	print_map(map);
 	free_all(map, 3);
+	free_all_cond(conditions, 7);
 }
