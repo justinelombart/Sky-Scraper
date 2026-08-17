@@ -14,11 +14,11 @@
 #include "conditions.h"
 #include <stdio.h>
 
-int		input_error(t_conditions *conditions);
+int				input_error(t_conditions *conditions);
 
-int		*prepare_arg(char *str);
+int				*prepare_arg(char *str);
 
-int		valid_input(char *str);
+int				valid_input(char *str);
 
 t_conditions	*fill_conds(int **map, int *str, t_conditions *conditions);
 
@@ -31,7 +31,7 @@ t_conditions	*free_all_cond(t_conditions *conditions, int failed);
 t_conditions	*process_input(int **map, char **argv, int argc)
 {
 	t_conditions	*conditions;
-	int		*arg;
+	int				*arg;
 
 	if (argc != 1 || !valid_input(argv[0]))
 		return (NULL);
@@ -84,12 +84,12 @@ int	*prepare_arg(char *str)
 
 t_conditions	bld_line_cond(int *line, int lft_vw, int rgt_vw)
 {
-	int i;
-	t_conditions condition;
+	int				i;
+	t_conditions	condition;
 
 	condition.left_view = lft_vw;
 	condition.right_view = rgt_vw;
-	condition.values = malloc(4 * sizeof(int*));
+	condition.values = malloc(4 * sizeof(int *));
 	if (!condition.values)
 		return (condition);
 	i = 0;
@@ -116,7 +116,7 @@ t_conditions	bld_col_cond(int **map, int column, int lft_vw, int rgt_vw)
 	while (i < 4)
 	{
 		condition.values[i] = &map[i][column];
-		condition.seen[i+1] = 0;
+		condition.seen[i + 1] = 0;
 		i++;
 	}
 	return (condition);

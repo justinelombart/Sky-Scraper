@@ -27,7 +27,7 @@ void	print_map(int **map)
 			c = map[i][j] + '0';
 			write(1, &c, 1);
 			if (j < 3)
-				write(1," ", 1);
+				write (1, " ", 1);
 			j++;
 		}
 		write(1, "\n", 1);

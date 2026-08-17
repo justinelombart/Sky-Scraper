@@ -13,7 +13,7 @@
 int	valid_input(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	while (str[i])
 	{
