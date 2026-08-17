@@ -6,7 +6,7 @@
 /*   By: cdesfoug <cdesfoug@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 12:57:46 by cdesfoug          #+#    #+#             */
-/*   Updated: 2026/08/16 17:23:46 by cdesfoug         ###   ########.fr       */
+/*   Updated: 2026/08/17 20:39:19 by cdesfoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rmv_nbr(t_conditions *conditions, int index, int position);
 
-int		vrfy_vw(int **values, int view, int unknown, int pos, int sens);
+int		vrfy_vw(int **values, int view, int unknown, int sens);
 
 int		verify_both_views(t_conditions *conds, int idx);
 
@@ -56,28 +56,32 @@ int	verify_both_views(t_conditions *conds, int idx)
 		i++;
 	}
 	vrf = 1;
-	vrf &= vrfy_vw(conds[idx].values, conds[idx].left_view, unknown, 0, 1);
-	vrf &= vrfy_vw(conds[idx].values, conds[idx].right_view, unknown, 3, -1);
+	vrf &= vrfy_vw(conds[idx].values, conds[idx].left_view, unknown, 1);
+	vrf &= vrfy_vw(conds[idx].values, conds[idx].right_view, unknown, -1);
 	return (vrf);
 }
 
-int	vrfy_vw(int **values, int view, int unknown, int pos, int sens)
+int	vrfy_vw(int **values, int view, int unknown, int sens)
 {
 	int	i;
 	int	max;
 	int	count;
+	int	pos;
 
+	if (sens == 1)
+		pos = 0;
+	else
+		pos = 3;
 	max = 0;
 	count = 0;
-	i = 0;
-	while (i < 4)
+	i = -1;
+	while (++i < 4)
 	{
 		if (*values[pos] > max)
 		{
 			max = *values[pos];
 			count++;
 		}
-		i++;
 		pos += sens;
 	}
 	if (unknown == 0)
