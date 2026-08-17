@@ -6,23 +6,21 @@
 /*   By: cdesfoug <cdesfoug@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/15 14:58:30 by cdesfoug          #+#    #+#             */
-/*   Updated: 2026/08/17 20:12:55 by jlombart         ###   ########.fr       */
+/*   Updated: 2026/08/17 20:48:05 by cdesfoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conditions.h"
 
-void	prefill_map(int **map, t_conditions *conditions);
+void	prefill_map(t_conditions *conditions);
 
 void	fill_all_last(t_conditions *conditions);
 
 int		fill_next(t_conditions *conds);
 
-int	fill_map(int **map, t_conditions *conditions)
+int	fill_map(t_conditions *conditions)
 {
-	int	changed;
-
-	prefill_map(map, conditions);
+	prefill_map(conditions);
 	fill_all_last(conditions);
 	return (fill_next(conditions));
 }

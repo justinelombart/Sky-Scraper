@@ -6,7 +6,7 @@
 /*   By: cdesfoug <cdesfoug@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/15 15:26:33 by cdesfoug          #+#    #+#             */
-/*   Updated: 2026/08/16 18:30:09 by cdesfoug         ###   ########.fr       */
+/*   Updated: 2026/08/17 20:46:09 by cdesfoug         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ void	put_start_info(t_conditions *conds, int i);
 
 void	fill_4(t_conditions *conds, int index, int pos, int sens);
 
-void	prefill_map(int **map, t_conditions *conditions)
+void	prefill_map(t_conditions *conditions)
 {
 	int	i;
-	int	**column;
 
 	i = 0;
 	while (i < 8)
