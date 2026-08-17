@@ -17,7 +17,7 @@ t_conditions	*process_input(int **map, char **argv, int argc);
 
 int				**create_map(void);
 
-int				fill_map(int **map, t_conditions *conditions);
+int				fill_map(t_conditions *conditions);
 
 int				**free_all(int **tab, int failed);
 
@@ -28,8 +28,8 @@ void			print_map(int **map);
 int	main(int argc, char **argv)
 {
 	t_conditions	*conditions;
-	int		**map;
-	int		finished;
+	int				**map;
+	int				finished;
 
 	map = create_map();
 	conditions = process_input(map, argv + 1, argc - 1);
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 		free_all(map, 3);
 		return (0);
 	}
-	finished = fill_map(map, conditions);
+	finished = fill_map(conditions);
 	if (!finished)
 	{
 		write(1, "Error\n", 6);
